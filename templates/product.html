@@ -1,0 +1,112 @@
+{%extends 'base.html' %}  
+{% load static %}
+    <!-- ***** Products Area Starts ***** -->
+
+    {% block content %}
+    <section class="section" id="products">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-heading">
+                        <h2>Our Latest Products</h2>
+                        <span>Check out all of our products.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+
+                {% for item in object_list %}
+
+
+
+
+                
+
+                <div class="col-lg-3">
+                    <div class="item">
+                        <div class="thumb">
+                            <div class="hover-content">
+                                <ul>
+                                    <li><a href="{% url 'core:single-product' item.slug %}"><i class="fa fa-eye"></i></a></li>
+                                    <li><a href="single-product.html"><i class="fa fa-star"></i></a></li>
+                                    <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
+                                </ul>
+                            </div>
+                            <img src="{{ item.image.url }}" alt="Image">
+
+                            
+                        </div>
+                        <div class="down-content">
+                            <h4>{{item.title}}</h4>
+                            <span>{{item.price}}</span>
+                            <ul class="stars">
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                                <li><i class="fa fa-star"></i></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                {% endfor %}
+                
+                
+                <div class="col-lg-12">
+                    <div class="pagination">
+                        <ul>
+                            <li>
+                                {% if page_obj.has_previous %}
+                                    <a href="?page=1">1</a>
+                                    <a href="?page=2">2</a>
+                                    <a href="?page=3">3</a>
+                                    <a href="?page={{ page_obj.previous_page_number }}">prev</a>
+                                {% endif %}
+                            </li>
+                            <!-- <li class="active">
+                                <a href="#">2</a>
+                            </li>
+                            <li>
+                                <a href="#">3</a>
+                            </li>
+                            <li>
+                                <a href="#">4</a>
+                            </li> -->
+                            <li>
+                                {% if page_obj.has_next %}
+                                    <a href="?page={{ page_obj.next_page_number }}">next</a>
+                                     <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+                                {% endif %}
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {% endblock content %}
+    <!-- ***** Products Area Ends ***** -->
+
+
+
+    <!-- <div class="pagination">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+                <a href="?page=1">&laquo; first</a>
+                <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+            {% endif %}
+    
+            <span class="current">
+                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+            </span>
+    
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">next</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+            {% endif %}
+        </span>
+    </div> -->

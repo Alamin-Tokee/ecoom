@@ -1,0 +1,65 @@
+<!-- ***** Header Area Start ***** -->
+{% load static %}
+<header class="header-area header-sticky">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav class="main-nav">
+                    <!-- ***** Logo Start ***** -->
+                    <a href="{% url 'core:home' %}" class="logo">
+                        <img src="{% static 'images/logo.png' %}">
+                    </a>
+                    <!-- ***** Logo End ***** -->
+                    <!-- ***** Menu Start ***** -->
+                    <ul class="nav">
+                        <li class="scroll-to-section"><a href="{% url 'core:home' %}" class="active">Home</a></li>
+                        <li class="scroll-to-section"><a href="{% url 'core:product' %}">Traditional</a></li>
+                        <li class="scroll-to-section"><a href="{% url 'core:product' %}">Normal</a></li>
+                        <!-- <li class="scroll-to-section"><a href="#kids">Kid's</a></li> -->
+                        <!-- <li class="submenu">
+                            <a href="javascript:;">Pages</a>
+                            <ul>
+                                <li><a href="about.html">About Us</a></li>
+                                <li><a href="products.html">Products</a></li>
+                                <li><a href="single-product.html">Single Product</a></li>
+                                <li><a href="contact.html">Contact Us</a></li>
+                            </ul>
+                        </li> -->
+                        <!-- <li class="submenu">
+                            <a href="javascript:;">Features</a>
+                            <ul>
+                                <li><a href="#">Features Page 1</a></li>
+                                <li><a href="#">Features Page 2</a></li>
+                                <li><a href="#">Features Page 3</a></li>
+                                <li><a rel="nofollow" href="https://templatemo.com/page/4" target="_blank">Template Page 4</a></li>
+                            </ul>
+                        </li> -->
+                        <li class="scroll-to-section"><a href="#explore"><i class="fa fa-shopping-cart"></i></a></li>
+                        {% if user.is_authenticated  %}
+                           <li class="submenu">
+                                <a href="javascript:;"><i class="fa fa-user"></i></a>
+                                <ul>
+                                    <li><a href="#">Profile</a></li>
+                                    <li><a href="#">Settings</a></li>
+                                    <li><a href="{% url 'core:signout' %}">Logout</a></li>
+                                    <!-- <li><a rel="nofollow" href="https://templatemo.com/page/4" target="_blank">Template Page 4</a></li> -->
+                                </ul>
+                            </li>
+
+
+                            <!-- <li class="scroll-to-section"><a href="{% url 'core:signin' %}"><i class="fa fa-user"></i></a></li> -->
+                        {% else %} 
+                            <li class="scroll-to-section"><a href="{% url 'core:signin' %}"><i class="fa fa-sign-in"></i></a></li>
+                        {% endif %} 
+
+                    </ul>        
+                    <a class='menu-trigger'>
+                        <span>Menu</span>
+                    </a>
+                    <!-- ***** Menu End ***** -->
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- ***** Header Area End ***** -->
