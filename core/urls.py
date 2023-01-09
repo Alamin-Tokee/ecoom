@@ -10,6 +10,8 @@ from .views import (
     ProductDetails,
     SignupPageView,
     SigninPageView,
+    add_to_cart,
+    OrderSummaryView
     )
 
 
@@ -22,6 +24,8 @@ urlpatterns = [
     path('signout/', signout , name='signout'),
     path('product/',ProductView.as_view(), name='product' ),
     path('product/<slug:slug>',ProductDetails.as_view(), name='single-product'),
+    path('add-to-cart/<slug:slug>/', add_to_cart, name='add-to-cart'),
+    path('cart/', OrderSummaryView.as_view(), name='cart'),
     
 ]
 
