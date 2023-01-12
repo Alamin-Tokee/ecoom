@@ -102,17 +102,17 @@ class CheckoutForm(forms.Form):
     shipping_country = CountryField(blank_label='(select country)').formfield(
         required=False,
         widget=CountrySelectWidget(attrs={
-            'class':'custom-select d-block w-100',
+            'class': 'custom-select d-block w-100',
         }))
 
     shipping_zip = forms.CharField(required=False)
 
     billing_address = forms.CharField(required=False)
     billing_address2 = forms.CharField(required=False)
-    billing_country = CountryField(blank_label = '(select country)').formfield(
+    billing_country = CountryField(blank_label='(select country)').formfield(
         required=False,
         widget=CountrySelectWidget(attrs={
-            'class':'custom-select d-block w-100',
+            'class': 'custom-select d-block w-100',
         }))
     billing_zip = forms.CharField(required=False)
 
@@ -122,7 +122,8 @@ class CheckoutForm(forms.Form):
     set_default_billing = forms.BooleanField(required=False)
     use_default_billing = forms.BooleanField(required=False)
 
-    payment_option = forms.CharField(widget=forms.RadioSelect, choices=PAYMENT_CHOICES)
+    payment_option = forms.ChoiceField(
+        widget=forms.RadioSelect, choices=PAYMENT_CHOICES)
     
 
 class CouponForm(forms.Form):
@@ -132,5 +133,7 @@ class CouponForm(forms.Form):
         'aria-label':'Recipient\'s username',
         'aria-describedby':'basic-addon2'
     }))
+
+    
 
 

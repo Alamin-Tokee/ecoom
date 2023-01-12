@@ -119,6 +119,10 @@ https://templatemo.com/tm-571-hexashop
     {% include 'footer.html' %}
 
      <!-- ***** Footer Start ***** -->
+
+
+    {% block extra_scripts %}
+    {% endblock extra_scripts %}
     
 
     <!-- jQuery -->
@@ -139,6 +143,7 @@ https://templatemo.com/tm-571-hexashop
     <script src="{% static 'js/slick.js' %}"></script> 
     <script src="{% static 'js/lightbox.js' %}"></script> 
     <script src="{% static 'js/isotope.js' %}"></script> 
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script> -->
     
     <!-- Global Init -->
     <script src="{% static 'js/custom.js' %}"></script>
